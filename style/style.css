@@ -89,8 +89,17 @@ main {
   background-color: hsl(210, 46%, 95%);
   border-radius: 100%;
   cursor: pointer;
-  /* Show the social media container when hovering over the share button */
-  /* Show the social media container when hovering over the share button */
+  /* 
+      Use the + sibling combinator to select the next immediate sibling
+      element. In this case, when hovering over .share-button, it will
+      target the .social-media-container that follows it directly. 
+  */
+  /* 
+      Use the descendant combinator (space) to 
+      target any descendant <path> elements within 
+      .share-button. This means it will find <path> elements nested inside 
+      .share-button and change their fill color on hover. 
+  */
 }
 .share-container .share-button:hover + .social-media-container {
   opacity: 1;
