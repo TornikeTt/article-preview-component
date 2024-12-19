@@ -85,87 +85,88 @@ main {
             }
         }
     }
-}
 
-.share-container {
-    position: relative;
+    .share-container {
+        position: relative;
 
-    .share-button {
-        border: none;
-        outline: none;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: $C4_lightGrayishBlue;
-        border-radius: 100%;
-        cursor: pointer;
+        .share-button {
+            border: none;
+            outline: none;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $C4_lightGrayishBlue;
+            border-radius: 100%;
+            cursor: pointer;
 
-        /* 
-            Use the + sibling combinator to select the next immediate sibling
-            element. In this case, when hovering over .share-button, it will
-            target the .social-media-container that follows it directly. 
-        */
-        &:hover + .social-media-container {
-            opacity: 1;
-            visibility: visible;
-            background-color: $C1_veryDarkGrayishBlue;
-            color: white;
+            /* 
+                Use the + sibling combinator to select the next immediate sibling
+                element. In this case, when hovering over .share-button, it will
+                target the .social-media-container that follows it directly. 
+            */
+
+            &:focus + .social-media-container {
+                opacity: 1;
+                visibility: visible;
+                background-color: $C1_veryDarkGrayishBlue;
+                color: white;
+            }
+
+            &:focus {
+                background-color: $C1_veryDarkGrayishBlue;
+            }
+
+            /* 
+                Use the descendant combinator (space) to 
+                target any descendant <path> elements within 
+                .share-button. This means it will find <path> elements nested inside 
+                .share-button and change their fill color on hover. 
+            */
+            &:focus path {
+                fill: white;
+            }
         }
 
-        &:hover {
-            background-color: $C1_veryDarkGrayishBlue;
-        }
+        .social-media-container {
+            /* Initially hide the social media container */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            /* Initially hide the social media container */
 
-        /* 
-            Use the descendant combinator (space) to 
-            target any descendant <path> elements within 
-            .share-button. This means it will find <path> elements nested inside 
-            .share-button and change their fill color on hover. 
-        */
-        &:hover path {
-            fill: white;
-        }
-    }
-
-    .social-media-container {
-        /* Initially hide the social media container */
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.3s ease, visibility 0.3s ease;
-        /* Initially hide the social media container */
-
-        position: absolute;
-        width: 220px;
-        height: 55px;
-        border-radius: 10px;
-        background-color: $C1_veryDarkGrayishBlue;
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        align-items: center;
-
-        top: -80px;
-        left: -94px;
-
-        p {
-            color: $C2_desaturatedDarkBlue;
-            letter-spacing: 3px;
-            font-size: 13px;
-        }
-
-        &::before {
-            content: "";
             position: absolute;
-            left: 50%;
-            bottom: -12px;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
-            border-top: 20px solid $C1_veryDarkGrayishBlue;
+            width: 220px;
+            height: 55px;
+            border-radius: 10px;
+            background-color: $C1_veryDarkGrayishBlue;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+
+            top: -80px;
+            left: -94px;
+
+            p {
+                color: $C2_desaturatedDarkBlue;
+                letter-spacing: 3px;
+                font-size: 13px;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: 50%;
+                bottom: -12px;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-left: 20px solid transparent;
+                border-right: 20px solid transparent;
+                border-top: 20px solid $C1_veryDarkGrayishBlue;
+            }
         }
     }
 }

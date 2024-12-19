@@ -74,11 +74,10 @@ main {
   color: hsl(214, 17%, 51%);
   font-weight: 500;
 }
-
-.share-container {
+.author-container .share-container {
   position: relative;
 }
-.share-container .share-button {
+.author-container .share-container .share-button {
   border: none;
   outline: none;
   width: 30px;
@@ -101,19 +100,19 @@ main {
       .share-button and change their fill color on hover. 
   */
 }
-.share-container .share-button:hover + .social-media-container {
+.author-container .share-container .share-button:focus + .social-media-container {
   opacity: 1;
   visibility: visible;
   background-color: hsl(217, 19%, 35%);
   color: white;
 }
-.share-container .share-button:hover {
+.author-container .share-container .share-button:focus {
   background-color: hsl(217, 19%, 35%);
 }
-.share-container .share-button:hover path {
+.author-container .share-container .share-button:focus path {
   fill: white;
 }
-.share-container .social-media-container {
+.author-container .share-container .social-media-container {
   /* Initially hide the social media container */
   opacity: 0;
   visibility: hidden;
@@ -131,12 +130,12 @@ main {
   top: -80px;
   left: -94px;
 }
-.share-container .social-media-container p {
+.author-container .share-container .social-media-container p {
   color: hsl(214, 17%, 51%);
   letter-spacing: 3px;
   font-size: 13px;
 }
-.share-container .social-media-container::before {
+.author-container .share-container .social-media-container::before {
   content: "";
   position: absolute;
   left: 50%;
