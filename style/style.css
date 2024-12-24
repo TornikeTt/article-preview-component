@@ -76,6 +76,9 @@ main {
   color: hsl(214, 17%, 51%);
   font-weight: 500;
 }
+.author-container .share-container {
+  z-index: 100;
+}
 .author-container .share-container .share-button {
   border: none;
   outline: none;
@@ -139,6 +142,7 @@ main {
     object-fit: cover;
   }
   .content-container {
+    overflow: hidden;
     width: 100%;
     padding: 30px;
   }
@@ -151,6 +155,9 @@ main {
     color: hsl(214, 17%, 51%);
     font-weight: 500;
     line-height: 20px;
+  }
+  .author-container {
+    margin-top: 30px;
   }
 }
 
