@@ -26,8 +26,9 @@ main {
     height: 260px;
     background-color: white;
     border-radius: 10px;
-    overflow: hidden;
+
     display: flex;
+    position: relative;
 }
 
 .drawer-image-container {
@@ -86,65 +87,66 @@ main {
             }
         }
     }
-
-    .share-container {
-        z-index: 100;
-        .share-button {
-            border: none;
-            outline: none;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: $C4_lightGrayishBlue;
-            border-radius: 100%;
-            cursor: pointer;
-        }
-    }
 }
 
-.social-media-container {
-    position: absolute;
-    width: 220px;
-    height: 55px;
-    border-radius: 10px;
-    background-color: $C1_veryDarkGrayishBlue;
+.share-container {
+    /* 
+        Share button which is responsible for showing and hiding 
+        the social-media-container that includes all social media icons
+    */
 
-    display: none;
-    justify-content: center;
-    align-items: center;
-    justify-self: flex-start;
+    position: relative;
 
-    gap: 15px;
-
-    p {
-        color: $C2_desaturatedDarkBlue;
-        letter-spacing: 3px;
-        font-size: 13px;
+    .share-button {
+        border: none;
+        outline: none;
+        width: 30px;
+        height: 30px;
+        background-color: $C4_lightGrayishBlue;
+        border-radius: 100%;
+        cursor: pointer;
     }
 
-    &::before {
-        content: "";
+    // includes all social media icons
+    .social-media-container {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: -12px;
-        width: 0;
-        height: 0;
-        border-left: 20px solid transparent;
-        border-right: 20px solid transparent;
-        border-top: 20px solid $C1_veryDarkGrayishBlue;
-    }
-}
+        width: 230px;
+        height: 55px;
+        border-radius: 10px;
+        background-color: $C1_veryDarkGrayishBlue;
 
-@media (max-width: 710px) {
-    main {
-        width: 95%;
-    }
+        visibility: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-    .content-container {
-        overflow: auto;
+        gap: 15px;
+
+        top: -55px;
+        left: -100px;
+
+        p {
+            color: $C3_grayishBlue;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        /*
+            To add a triangle pointer to the bottom 
+            side of the social media container
+        */
+        &::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -12px;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid $C1_veryDarkGrayishBlue;
+        }
     }
 }
 
@@ -176,9 +178,5 @@ main {
             font-weight: 500;
             line-height: 20px;
         }
-    }
-
-    .author-container {
-        margin-top: 30px;
     }
 }

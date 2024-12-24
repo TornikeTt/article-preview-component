@@ -20,8 +20,8 @@ main {
   height: 260px;
   background-color: white;
   border-radius: 10px;
-  overflow: hidden;
   display: flex;
+  position: relative;
 }
 
 .drawer-image-container {
@@ -76,40 +76,47 @@ main {
   color: hsl(214, 17%, 51%);
   font-weight: 500;
 }
-.author-container .share-container {
-  z-index: 100;
+
+.share-container {
+  /* 
+      Share button which is responsible for showing and hiding 
+      the social-media-container that includes all social media icons
+  */
+  position: relative;
 }
-.author-container .share-container .share-button {
+.share-container .share-button {
   border: none;
   outline: none;
   width: 30px;
   height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: hsl(210, 46%, 95%);
   border-radius: 100%;
   cursor: pointer;
 }
-
-.social-media-container {
+.share-container .social-media-container {
   position: absolute;
-  width: 220px;
+  width: 230px;
   height: 55px;
   border-radius: 10px;
   background-color: hsl(217, 19%, 35%);
-  display: none;
+  visibility: hidden;
+  display: flex;
   justify-content: center;
   align-items: center;
-  justify-self: flex-start;
   gap: 15px;
+  top: -55px;
+  left: -100px;
+  /*
+      To add a triangle pointer to the bottom 
+      side of the social media container
+  */
 }
-.social-media-container p {
-  color: hsl(214, 17%, 51%);
+.share-container .social-media-container p {
+  color: hsl(212, 23%, 69%);
   letter-spacing: 3px;
   font-size: 13px;
 }
-.social-media-container::before {
+.share-container .social-media-container::before {
   content: "";
   position: absolute;
   left: 50%;
@@ -122,14 +129,6 @@ main {
   border-top: 20px solid hsl(217, 19%, 35%);
 }
 
-@media (max-width: 710px) {
-  main {
-    width: 95%;
-  }
-  .content-container {
-    overflow: auto;
-  }
-}
 @media (max-width: 375px) {
   main {
     width: 90%;
@@ -155,9 +154,6 @@ main {
     color: hsl(214, 17%, 51%);
     font-weight: 500;
     line-height: 20px;
-  }
-  .author-container {
-    margin-top: 30px;
   }
 }
 
