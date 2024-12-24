@@ -129,6 +129,51 @@ main {
   border-top: 20px solid hsl(217, 19%, 35%);
 }
 
+/* 
+    This section is not shown in the desktop layout; 
+    it only appears in the mobile layout after the user 
+    clicks the share button. 
+*/
+.social-media-container_for_mobile {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 65px;
+  border-top-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  background-color: hsl(217, 19%, 35%);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.social-media-container_for_mobile .left_side {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.social-media-container_for_mobile .left_side p {
+  margin-bottom: 5px;
+  color: hsl(212, 23%, 69%);
+  font-weight: 500;
+  letter-spacing: 5px;
+  font-size: 13px;
+}
+.social-media-container_for_mobile .rigth_side {
+  width: 30px;
+  height: 30px;
+  margin-bottom: 8px;
+  border-radius: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: hsl(214, 17%, 51%);
+}
+.social-media-container_for_mobile .rigth_side path {
+  fill: hsl(210, 46%, 95%);
+}
+
 @media (max-width: 375px) {
   main {
     width: 90%;
