@@ -18,11 +18,10 @@ body {
     align-items: center;
 
     background-color: $C4_lightGrayishBlue;
-    overflow: hidden;
 }
 
 main {
-    width: 690px;
+    width: min(80%, 690px);
     height: 260px;
     background-color: white;
     border-radius: 10px;
@@ -36,6 +35,9 @@ main {
     background-size: cover;
     width: 270px;
     height: 100%;
+
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .content-container {
@@ -115,8 +117,7 @@ main {
         border-radius: 10px;
         background-color: $C1_veryDarkGrayishBlue;
 
-        visibility: hidden;
-        display: flex;
+        display: none;
         justify-content: center;
         align-items: center;
 
@@ -147,6 +148,17 @@ main {
             border-right: 20px solid transparent;
             border-top: 20px solid $C1_veryDarkGrayishBlue;
         }
+
+        animation: desktop_show_mediaIcones 0.5s forwards;
+    }
+}
+
+@keyframes desktop_show_mediaIcones {
+    from {
+        top: -55px;
+    }
+    to {
+        top: -80px;
     }
 }
 
@@ -159,6 +171,7 @@ main {
 .social-media-container_for_mobile {
     position: absolute;
     bottom: 0;
+    left: 100%;
 
     width: 100%;
     height: 65px;
@@ -173,6 +186,8 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-around;
+
+    display: none;
 
     .left_side {
         display: flex;
@@ -203,6 +218,26 @@ main {
             fill: $C4_lightGrayishBlue;
         }
     }
+
+    animation: mobiel_show_mediaIcones 0.5s forwards;
+}
+
+@keyframes mobiel_show_mediaIcones {
+    from {
+        left: 100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+
+@media (max-width: 840px) {
+    .content-container {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Internet Explorer/Edge */
+    }
 }
 
 @media (max-width: 375px) {
@@ -219,7 +254,6 @@ main {
     }
 
     .content-container {
-        overflow: hidden;
         width: 100%;
         padding: 30px;
         .content-title {
